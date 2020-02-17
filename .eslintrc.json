@@ -1,0 +1,25 @@
+{
+  "overrides": [
+    {
+      "files": [ "src/**/*.js" ],
+      "extends": [
+        "standard",
+        "htmlacademy/es6"
+      ],
+      "rules": {
+        "indent": [
+          "error",
+          4
+        ],
+        "semi": [
+          "error",
+          "never"
+        ],
+        "quotes": [
+          "error",
+          "backtick"
+        ]
+      }
+    }
+  ]
+}
