@@ -9,8 +9,9 @@ const imageMinify = require('./gulp/tasks/imageMinify')
 const clean = require('./gulp/tasks/clean')
 const copyDependencies = require('./gulp/tasks/copyDependencies')
 const lighthouse = require('./gulp/tasks/lighthouse')
+const svgSprite = require('./gulp/tasks/svgSprite')
 
-const dev = gulp.parallel(pug2html, styles, script, fonts, imageMinify)
+const dev = gulp.parallel(pug2html, styles, script, fonts, imageMinify, svgSprite)
 
 const build = gulp.series(clean, copyDependencies, dev)
 

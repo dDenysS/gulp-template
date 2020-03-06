@@ -34,7 +34,7 @@
     "gulp-babel": "^8.0.0",
     "gulp-clean-css": "^4.2.0",
     "gulp-eslint": "^6.0.0",
-    "gulp-html-bem-validator": "^1.0.4",
+    "gulp-html-bem-validator": "^1.0.5",
     "gulp-imagemin": "^7.1.0",
     "gulp-npm-dist": "^1.0.3",
     "gulp-npm-files": "^0.1.3",
