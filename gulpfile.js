@@ -11,11 +11,18 @@ const copyDependencies = require('./gulp/tasks/copyDependencies')
 const lighthouse = require('./gulp/tasks/lighthouse')
 const svgSprite = require('./gulp/tasks/svgSprite')
 
+function setMode(isProduction = false) {
+  return cb => {
+    process.env.NODE_ENV = isProduction ? 'production' : 'development'
+    cb()
+  }
+}
+
 const dev = gulp.parallel(pug2html, styles, script, fonts, imageMinify, svgSprite)
 
 const build = gulp.series(clean, copyDependencies, dev)
 
-module.exports.start = gulp.series(build, serve)
-module.exports.build = build
+module.exports.start = gulp.series(setMode(), build, serve)
+module.exports.build = gulp.series(setMode(true), build)
 
 module.exports.lighthouse = gulp.series(lighthouse)
