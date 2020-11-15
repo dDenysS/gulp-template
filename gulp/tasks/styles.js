@@ -3,13 +3,12 @@ const plumber = require('gulp-plumber')
 const sass = require('gulp-sass')
 const cleanCSS = require('gulp-clean-css')
 const sourcemaps = require('gulp-sourcemaps')
-const shorthand = require('gulp-shorthand')
 const autoprefixer = require('gulp-autoprefixer')
 const gulpStylelint = require('gulp-stylelint')
 const rename = require("gulp-rename")
 
 module.exports = function styles() {
-  return gulp.src('src/styles/*.scss')
+  return gulp.src('src/styles/style.scss')
     .pipe(plumber())
     .pipe(gulpStylelint({
       failAfterError: false,
@@ -25,15 +24,14 @@ module.exports = function styles() {
     .pipe(autoprefixer({
       cascade: false
     }))
-    .pipe(shorthand())
     .pipe(cleanCSS({
       debug: true,
       compatibility: '*'
     }, details => {
       console.log(`${details.name}: Original size:${details.stats.originalSize} - Minified size: ${details.stats.minifiedSize}`)
     }))
-    .pipe(sourcemaps.write())
     .pipe(rename({ suffix: '.min' }))
+    .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('build/css'))
 }
 
