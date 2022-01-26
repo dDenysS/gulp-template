@@ -20,7 +20,7 @@
     "at-rule-semicolon-newline-after": "always",
     "at-rule-semicolon-space-before": "never",
     "selector-max-class": 2,
-    "unit-whitelist": [
+    "unit-allowed-list": [
       "em",
       "rem",
       "%",
